@@ -1,0 +1,90 @@
+.home-container {
+	width: 100%;
+	height: 100vh;
+
+	.title-label {
+		position: relative;
+		color: $impact-color-red;
+		bottom: 10px !important;
+		font-size: 70px;
+		font-family: $impact-font-koulen;
+	}
+
+	.dropdown-toggle {
+		float: right;
+		color: $impact-color-red !important;
+		font-family: $impact-font-dancing-script;
+		background-color: transparent !important;
+		font-size: 28px !important;
+		border: none !important;
+		box-shadow: none !important;
+		margin-top: -105px;
+		&::after {
+			margin-left: 10px;
+			margin-top: 20px;
+		}
+	}
+
+	.dropdown-menu {
+		background-color: black !important;
+		font-family: $impact-font-dancing-script;
+		font-size: 22px !important;
+		margin-left: -60px;
+		margin-top: -5px;
+		box-shadow: 5px 5px 5px 5px $impact-color-red;
+
+		.dropdown-item {
+			color: $impact-color-red !important;
+		}
+
+		.dropdown-item:hover {
+			background-color: $impact-color-orange;
+		}
+
+		.dropdown-item:active {
+			background-color: $impact-color-yellow;
+		}
+	}
+
+	.typewriter-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.Typewriter {
+			position: absolute;
+			top: 30%;
+			font-family: $impact-font-koulen;
+			color: $impact-color-orange;
+			text-shadow: 5px 2px 0px $impact-color-red;
+			font-size: 65px;
+		}
+	}
+
+	.language-label {
+		position: absolute;
+		color: $impact-color-yellow;
+		right: 0px;
+		padding-right: 30px;
+		margin-top: 32vh;
+		border-bottom: 1px solid $impact-color-yellow;
+		cursor: pointer;
+	}
+
+	.video-div {
+		float: right;
+		margin-top: 47vh;
+		width: 30%;
+		height: 30%;
+		max-width: 350px;
+		video {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.Menu__ContainerBox-sc {
+	font-family: $impact-font-dancing-script;
+	background-color: $impact-color-red !important;
+}
