@@ -1,16 +1,15 @@
 @import './variables.scss';
 @import './fonts.scss';
 @import './Home/home.scss';
+@import './Authorization/registration.scss';
 
 body {
-	padding: 20px 60px;
+	// padding: 20px 60px;
 	height: 100vh;
 	margin: auto !important;
-	max-width: 1350px;
-	background: url('../asset/fireBackground.BMP') no-repeat center center fixed;
 	background-position: right 100px !important;
-	background-color: black !important;
-	background-size: cover;
+	// background-color: #3a3b3c !important;
+	// background-image: radial-gradient(circle closest-side, #0d0d33 171.2%, #957dad 254.8%);
 	overflow-y: hidden;
 }
 

@@ -1,11 +1,14 @@
 .home-container {
-	width: 100%;
+	position: relative;
+	width: 100vw;
 	height: 100vh;
 
 	.title-label {
-		position: relative;
+		position: absolute;
+		z-index: 100;
 		color: $impact-color-red;
-		bottom: 10px !important;
+		bottom: 4vh !important;
+		left: 85vw;
 		font-size: 70px;
 		font-family: $impact-font-koulen;
 	}
@@ -25,38 +28,29 @@
 		}
 	}
 
-	.dropdown-menu {
+	.phantom-login-label {
+		float: right;
 		background-color: black !important;
 		font-family: $impact-font-dancing-script;
 		font-size: 22px !important;
-		margin-left: -60px;
-		margin-top: -5px;
-		box-shadow: 5px 5px 5px 5px $impact-color-red;
-
-		.dropdown-item {
-			color: $impact-color-red !important;
-		}
-
-		.dropdown-item:hover {
-			background-color: $impact-color-orange;
-		}
-
-		.dropdown-item:active {
-			background-color: $impact-color-yellow;
-		}
+		color: $impact-color-red !important;
+		margin-top: 30px;
 	}
 
-	.typewriter-container {
+	.phantom-login-label-hover:hover {
+		cursor: pointer;
+	}
+
+	.front-text-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 
-		.Typewriter {
-			position: absolute;
+		.front-text-label {
 			top: 30%;
 			font-family: $impact-font-koulen;
-			color: $impact-color-orange;
-			text-shadow: 5px 2px 0px $impact-color-red;
+			color: white;
+			text-shadow: 5px 2px 0px black;
 			font-size: 65px;
 		}
 	}
