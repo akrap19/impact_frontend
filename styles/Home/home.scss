@@ -3,11 +3,11 @@
 	width: 100vw;
 	height: 100vh;
 
-	.title-label {
+	.logo-container {
 		position: absolute;
 		z-index: 100;
 		color: $impact-color-red;
-		bottom: 4vh !important;
+		bottom: -2vh !important;
 		left: 85vw;
 		font-size: 70px;
 		font-family: $impact-font-koulen;

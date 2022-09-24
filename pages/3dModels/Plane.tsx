@@ -8,21 +8,10 @@ interface IPlaneStateProps {
 }
 
 const Plane = (props: IPlaneStateProps) => {
-	const [hovered, setHovered] = useState(false)
 	const planeRef: any = useRef()
 
-	useEffect(() => {
-		document.body.style.cursor = hovered ? 'pointer' : 'auto'
-	}, [hovered])
-
 	return (
-		<mesh
-			ref={planeRef}
-			position={props.position}
-			rotation={[0.1, -0.3, 0]}
-			onClick={props.onClick}
-			onPointerOver={() => setHovered(true)}
-			onPointerOut={() => setHovered(false)}>
+		<mesh ref={planeRef} position={props.position} rotation={[0.1, -0.3, 0]} onClick={props.onClick}>
 			<planeGeometry args={[7, 1.3]} />
 			<meshPhysicalMaterial color={'#5441C1'} />
 		</mesh>

@@ -4,12 +4,13 @@ import { Canvas } from '@react-three/fiber'
 import CanvasContent from './CanvasContent'
 import ImpactLogo from './../asset/Logo_auto_crveni.png'
 import Image from 'next/image'
+import UserProvider from './context/UserContext'
 
 const Home: NextPage = () => {
 	return (
 		<div className='home-container'>
-			<label className='title-label'>
-				<Image className='title-label' src={ImpactLogo} alt='logo' />
+			<label className='logo-container'>
+				<Image className='logo' src={ImpactLogo} alt='logo' />
 			</label>
 			<Canvas
 				gl={{ logarithmicDepthBuffer: true, antialias: true }}

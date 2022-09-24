@@ -1,26 +1,39 @@
 import { PublicKey } from '@solana/web3.js'
-import { useContext, useState } from 'react'
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
 import Plane from '../../3dModels/Plane'
 import Sphere from '../../3dModels/Sphere'
 import { UserContext } from '../../context/UserContext/UserContext'
 import { getProvider } from '../../utils'
-import { Text, Text3D } from '@react-three/drei'
+import { Text3D } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
+import { IUser } from '../../context/UserContext/models/User'
 
-const LoginLogOut = () => {
+interface ILoginLogOutStateProps {
+	setConncted: Dispatch<SetStateAction<boolean>>
+	setUser: Dispatch<SetStateAction<IUser | undefined>>
+}
+
+const LoginLogOut = (props: ILoginLogOutStateProps) => {
 	const { user } = useContext(UserContext)
-	const { setUser } = useContext(UserContext)
-	const { clearUser } = useContext(UserContext)
+	const { setUserWallet } = useContext(UserContext)
+	const { clearUserWallet } = useContext(UserContext)
 	const [logOutText, setLogOutText] = useState<string>('')
 	const provider = getProvider()
 	const { viewport } = useThree()
+	const { userAccount } = useContext(UserContext)
 	let text3dPosition = user ? viewport.width / (logOutText !== '' ? 1.97 : 2.13) : 21.1
+
+	useEffect(() => {
+		if (userAccount) {
+			props.setUser(userAccount)
+		}
+	}, [userAccount])
 
 	const handleAccessSolana = async () => {
 		if (!user && provider) {
 			provider.on('connect', (publicKey: PublicKey) => {
-				console.log('Connected to account', publicKey.toBase58())
-				setUser({ wallet: publicKey.toBase58() })
+				setUserWallet({ wallet: publicKey.toBase58() })
+				props.setConncted(true)
 			})
 			provider.connect().catch(error => {
 				console.log('login error', error)
@@ -36,10 +49,11 @@ const LoginLogOut = () => {
 	}
 
 	const handleLogOut = () => {
-		clearUser()
+		props.setConncted(false)
+		clearUserWallet()
 	}
 
-	const test = () => {
+	const handleLogOutText = () => {
 		setLogOutText(logOutText ? '' : 'Log Out')
 	}
 
@@ -48,8 +62,8 @@ const LoginLogOut = () => {
 			<Sphere
 				position={[user ? viewport.width / 2.5 : viewport.width / 1.6, 8.02, -14.3]}
 				textureImage={'/phantom.png'}
-				onPointerEnter={test}
-				onPointerLeave={test}
+				onPointerEnter={handleLogOutText}
+				onPointerLeave={handleLogOutText}
 				onClick={user ? handleLogOut : handleAccessSolana}
 			/>
 			{user && (

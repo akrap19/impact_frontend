@@ -1,21 +1,42 @@
-.registration {
-	float: right;
-	background: white;
-	width: 100px;
-	height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+.content {
+	width: 100%;
 
-.registration[data-isOpen='true'] {
-	width: 50vw;
-	height: 50vh;
-}
+	.input {
+		width: 12vw !important;
+		height: 3.3vh;
+		margin-right: 37vw;
+		margin-bottom: 10px;
 
-.child {
-	width: 40px;
-	height: 40px;
-	background: #f107a3;
-	border-radius: 50%;
+		&:first-child {
+			margin-top: 60px;
+		}
+	}
+
+	.signup-form {
+		display: inline-block;
+		justify-content: center;
+		width: 12vw !important;
+
+		.name-input {
+			@extend .input;
+		}
+
+		.email-input {
+			@extend .input;
+		}
+
+		.submit-button {
+			height: 4vh;
+			float: right;
+		}
+
+		.submit-btn {
+			position: relative;
+			height: 3.3vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			float: right;
+		}
+	}
 }
