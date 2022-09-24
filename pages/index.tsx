@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Canvas } from '@react-three/fiber'
-import CanvasContent from './CanvasContent'
 import ImpactLogo from './../asset/Logo_auto_crveni.png'
 import Image from 'next/image'
+import CanvasContent from '../CanvasContent'
 
 const Home: NextPage = () => {
 	return (
