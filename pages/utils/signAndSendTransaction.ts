@@ -14,7 +14,7 @@ const signAndSendTransaction = async (provider: PhantomProvider, transaction: Tr
     return signature;
   } catch (error) {
     console.warn(error);
-    throw new Error(error.message);
+    throw new Error();
   }
 };
 
