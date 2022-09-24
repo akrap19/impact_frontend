@@ -19,7 +19,7 @@ const signAllTransactions = async (
     return transactions;
   } catch (error) {
     console.warn(error);
-    throw new Error(error.message);
+    throw new Error();
   }
 };
 
