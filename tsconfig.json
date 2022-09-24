@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "3dModels/WhitePaper.js", "pages/3dModels/Aventador.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "3dModels/WhitePaper.jsges/3dModels/Aventador.js"],
   "exclude": ["node_modules"]
 }

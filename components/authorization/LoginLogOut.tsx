@@ -1,12 +1,12 @@
 import { PublicKey } from '@solana/web3.js'
 import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
-import Plane from '../../../3dModels/Plane'
-import Sphere from '../../../3dModels/Sphere'
-import { getProvider } from '../../../utils'
+import Plane from '../../3dModels/Plane'
+import Sphere from '../../3dModels/Sphere'
 import { Text3D } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
-import { IUser } from '../../../context/UserContext/models/User'
-import { UserContext } from '../../../context/UserContext/UserContext'
+import { IUser } from '../../context/UserContext/models/User'
+import { UserContext } from '../../context/UserContext/UserContext'
+import { getProvider } from '../../utils'
 
 interface ILoginLogOutStateProps {
 	setConncted: Dispatch<SetStateAction<boolean>>

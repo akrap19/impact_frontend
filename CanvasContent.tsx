@@ -11,16 +11,14 @@ import {
 import { useFrame, useThree } from '@react-three/fiber'
 import { Dispatch, useEffect, useState } from 'react'
 import { MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
-import Aventador from '../3dModels/Aventador'
+import Aventador from './3dModels/Aventador'
 import LoginLogOut from './components/authorization/LoginLogOut'
 import Registration from './components/authorization/Registration'
 import ImCloud from './components/common/ImCloud'
 import Navigation3DText from './components/navigation/Navigation3DText'
 import WhitePaper from './components/whitePaper/WhitePaper'
-import RoadMap from './components/roadMap/RoadMap'
-import UserProvider from '../context/UserContext'
-import { IUser } from '../context/UserContext/models/User'
-
+import { IUser } from './context/UserContext/models/User'
+import UserProvider from './context/UserContext/UserContext'
 interface ICanvasStateProps {
 	setClicked?: Dispatch<any>
 }
