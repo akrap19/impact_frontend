@@ -13,13 +13,13 @@ import { Dispatch, useEffect, useState } from 'react'
 import { MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
 import Aventador from './3dModels/Aventador'
 import LoginLogOut from './components/authorization/LoginLogOut'
-import UserProvider, { UserContext } from './context/UserContext'
 import Registration from './components/authorization/Registration'
 import ImCloud from './components/common/ImCloud'
-import { IUser } from './context/UserContext/models/User'
 import Navigation3DText from './components/navigation/Navigation3DText'
 import WhitePaper from './components/whitePaper/WhitePaper'
 import RoadMap from './components/roadMap/RoadMap'
+import UserProvider from '../context/UserContext'
+import { IUser } from '../context/UserContext/models/User'
 
 interface ICanvasStateProps {
 	setClicked?: Dispatch<any>

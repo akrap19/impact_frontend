@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import { createContext, useState } from 'react'
+import { createContext } from 'react'
 import { instance } from '../Instance'
 import { IAuthorization } from './models/Authorization'
 import { AuthorizationContextState } from './types'

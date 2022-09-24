@@ -2,8 +2,8 @@ import { Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import { FormEvent, useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { AuthorizationContext } from '../../context/AuthorizationContext/AuthorizationContext'
-import { UserContext } from '../../context/UserContext/UserContext'
+import { AuthorizationContext } from '../../../context/AuthorizationContext/AuthorizationContext'
+import { UserContext } from '../../../context/UserContext/UserContext'
 
 interface State {
 	user?: string

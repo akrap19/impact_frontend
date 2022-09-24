@@ -4,7 +4,6 @@ import { Canvas } from '@react-three/fiber'
 import CanvasContent from './CanvasContent'
 import ImpactLogo from './../asset/Logo_auto_crveni.png'
 import Image from 'next/image'
-import UserProvider from './context/UserContext'
 
 const Home: NextPage = () => {
 	return (
