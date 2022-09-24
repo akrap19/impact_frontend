@@ -148,7 +148,7 @@ const CanvasContent = (props: ICanvasStateProps) => {
 				// @ts-ignore
 				<Navigation3DText width={viewport.width} rotation={[0, -0.4, 0]} textIndex={1} textColor={'red'} />
 			}
-			<RoadMap position={new Vector3(viewport.width / -5.99, 4, 10.3)} />
+			{/* <RoadMap position={new Vector3(viewport.width / -5.99, 4, 10.3)} /> */}
 			<hemisphereLight intensity={0.5} />
 			<ContactShadows
 				resolution={1024}
