@@ -92,28 +92,37 @@ const Navigation3DText = (props: INavigation3Dtext) => {
 				{navigationText[props.textIndex]}
 				<meshStandardMaterial color={props.textColor} />
 			</Text3D>
-			<mesh
-				ref={planeRef}
-				position={[
-					props.width / (itemTitleLength ? (currentMenuItem ? 1.51 : 1.54) : currentMenuItem ? 2 : 1.87),
-					currentMenuItem ? 3 : 1.7,
-					-15.63
-				]}
-				onPointerOver={() => setHovered(true)}
-				onPointerOut={() => setHovered(false)}
-				onPointerEnter={() => handleNavigationText(props.textIndex)}
-				onPointerLeave={() => handleNavigationText(props.textIndex)}
-				onClick={(e: any) => {
-					e.stopPropagation()
-					if (clicked === e.object) {
-						setClicked(null)
-					} else {
-						setClicked(e.object)
+			{
+				// @ts-ignore
+				<mesh
+					ref={planeRef}
+					position={[
+						props.width / (itemTitleLength ? (currentMenuItem ? 1.51 : 1.54) : currentMenuItem ? 2 : 1.87),
+						currentMenuItem ? 3 : 1.7,
+						-15.63
+					]}
+					onPointerOver={() => setHovered(true)}
+					onPointerOut={() => setHovered(false)}
+					onPointerEnter={() => handleNavigationText(props.textIndex)}
+					onPointerLeave={() => handleNavigationText(props.textIndex)}
+					onClick={(e: any) => {
+						e.stopPropagation()
+						if (clicked === e.object) {
+							setClicked(null)
+						} else {
+							setClicked(e.object)
+						}
+					}}>
+					{
+						// @ts-ignore
+						<planeGeometry args={[itemTitleLength ? (currentMenuItem ? 1.7 : 1.5) : currentMenuItem ? 10 : 8, 1.3]} />
 					}
-				}}>
-				<planeGeometry args={[itemTitleLength ? (currentMenuItem ? 1.7 : 1.5) : currentMenuItem ? 10 : 8, 1.3]} />
-				<meshPhysicalMaterial color={'#5441C1'} transparent={true} opacity={0} />
-			</mesh>
+					{
+						// @ts-ignore
+						<meshPhysicalMaterial color={'#5441C1'} transparent={true} opacity={0} />
+					}
+				</mesh>
+			}
 		</>
 	)
 }
