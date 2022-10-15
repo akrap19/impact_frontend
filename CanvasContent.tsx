@@ -9,8 +9,8 @@ import {
 	OrbitControls
 } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import { Dispatch, useEffect, useState } from 'react'
-import { MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import { Camera, MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
 import Aventador from './3dModels/Aventador'
 import LoginLogOut from './components/authorization/LoginLogOut'
 import Registration from './components/authorization/Registration'
@@ -19,8 +19,10 @@ import Navigation3DText from './components/navigation/Navigation3DText'
 import WhitePaper from './components/whitePaper/WhitePaper'
 import { IUser } from './context/UserContext/models/User'
 import UserProvider from './context/UserContext/UserContext'
+
 interface ICanvasStateProps {
-	setClicked?: Dispatch<any>
+	goHome: boolean
+	setGoHome: Dispatch<SetStateAction<boolean>>
 }
 
 const CanvasContent = (props: ICanvasStateProps) => {
@@ -37,35 +39,22 @@ const CanvasContent = (props: ICanvasStateProps) => {
 		state.camera.lookAt(0, 0, 35)
 	}, [])
 
-	useEffect(() => {
-		if (clicked !== null) {
-			clicked.updateWorldMatrix(true, true)
-
-			const selection = clicked
-
-			const { position } = selection
-
-			const viewPos = new Vector3(selection.userData.viewPos)
-
-			const camPosTarget: any = new Vector3(...position).add(viewPos)
-
-			c.position.set(...camPosTarget)
-
-			c.lookAt(...position)
-			q.copy(c.quaternion)
-			p.copy(c.position)
-		} else {
-			p.set(0, 0, 35)
-
-			q.identity()
-		}
-	})
-
 	useFrame((state, dt) => {
-		const finalPosition = new Vector3(viewport.width / 0.29, 35, -275.3)
+		const registerFormPosition = new Vector3(viewport.width / 0.29, 35, -275.3)
+		const homePosition = new Vector3(0, 0, 35)
 
 		if (clicked !== null) {
-			state.camera.position.lerp(finalPosition, MathUtils.damp(0, 1, 5, dt))
+			state.camera.position.lerp(registerFormPosition, MathUtils.damp(0, 1, 5, dt))
+			setTimeout(() => {
+				setClicked(null)
+			}, 2000)
+		}
+
+		if (props.goHome) {
+			state.camera.position.lerp(homePosition, MathUtils.damp(0, 1, 5, dt))
+			setTimeout(() => {
+				props.setGoHome(false)
+			}, 1800)
 		}
 	})
 

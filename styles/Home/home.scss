@@ -11,6 +11,10 @@
 		left: 85vw;
 		font-size: 70px;
 		font-family: $impact-font-koulen;
+
+		.logo {
+			cursor: pointer;
+		}
 	}
 
 	.dropdown-toggle {

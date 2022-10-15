@@ -10,7 +10,7 @@ interface State {
 	password?: string
 }
 
-const Reistration = () => {
+const Registration = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { addSignUp } = useContext(AuthorizationContext)
 	const { user } = useContext(UserContext)
@@ -53,7 +53,7 @@ const Reistration = () => {
 					{
 						// @ts-ignore
 						<Button className='submit-btn' type='submit' variant='primary'>
-							Submit
+							Register
 						</Button>
 					}
 				</Form.Group>
@@ -62,4 +62,4 @@ const Reistration = () => {
 	)
 }
 
-export default Reistration
+export default Registration
