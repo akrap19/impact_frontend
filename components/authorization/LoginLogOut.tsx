@@ -30,17 +30,17 @@ const LoginLogOut = (props: ILoginLogOutStateProps) => {
 	}, [userAccount])
 
 	const handleAccessSolana = async () => {
-		if (!user && provider) {
-			provider.on('connect', (publicKey: PublicKey) => {
-				setUserWallet({ wallet: publicKey.toBase58() })
-				props.setConncted(true)
-			})
-			provider.connect().catch(error => {
-				console.log('login error', error)
-			})
-		} else {
-			window.open('https://phantom.app/', '_blank')
-		}
+		// if (!user && provider) {
+		// 	provider.on('connect', (publicKey: PublicKey) => {
+		// 		setUserWallet({ wallet: publicKey.toBase58() })
+		// 		props.setConncted(true)
+		// 	})
+		// 	provider.connect().catch(error => {
+		// 		console.log('login error', error)
+		// 	})
+		// } else {
+		// 	window.open('https://phantom.app/', '_blank')
+		// }
 	}
 
 	const handleFormatWalletAddress = (walletAddress: string) => {
