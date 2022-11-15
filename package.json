@@ -8,7 +8,6 @@
 		"start": "next start",
 		"lint": "next lint"
 	},
-	"proxy": "http://localhost:3000",
 	"dependencies": {
 		"@react-three/drei": "^9.24.0",
 		"@react-three/fiber": "^8.6.0",
