@@ -5,7 +5,6 @@
 		width: 12vw !important;
 		height: 3.3vh;
 		margin-right: 37vw;
-		margin-bottom: 10px;
 
 		&:first-child {
 			margin-top: 60px;
@@ -21,8 +20,19 @@
 			@extend .input;
 		}
 
-		.email-input {
+		.password-input {
 			@extend .input;
+
+			position: relative;
+			top: 5px !important;
+		}
+
+		.error-input {
+			margin-bottom: 6px;
+
+			&:first-child {
+				margin-bottom: -11px;
+			}
 		}
 
 		.submit-button {
@@ -30,8 +40,17 @@
 			float: right;
 		}
 
+		.text-danger {
+			position: relative;
+			font-size: 7px;
+			line-height: 9px;
+			top: 4px;
+			color: #dc3545;
+		}
+
 		.submit-btn {
 			position: relative;
+			top: 10px;
 			height: 3.3vh;
 			display: flex;
 			justify-content: center;

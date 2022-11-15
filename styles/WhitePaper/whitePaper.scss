@@ -1,0 +1,61 @@
+.white-list-content-container {
+	font-size: $impact-white-list-content-container-font-size;
+	font-family: $impact-font-inter;
+	color: red;
+	width: $impact-white-list-content-container-width;
+	height: $impact-white-list-content-container-height;
+	overflow-y: auto;
+
+	.intro-and-title-container {
+		text-align: center;
+
+		.intro-label {
+			font-size: $impact-white-paper-intro-label-font-size;
+			line-height: $impact-white-paper-intro-label-line-height;
+			font-weight: bold;
+		}
+
+		.title-label {
+			font-size: 120px;
+			margin-top: 50px;
+			margin-bottom: 100px;
+			font-weight: bolder;
+			text-decoration: underline;
+		}
+
+		.subtitle-label {
+			margin-top: 60px;
+			font-size: 85px;
+			font-weight: bolder;
+			margin-bottom: 40px;
+		}
+	}
+
+	.text-label {
+		text-align: left !important;
+		width: 100%;
+		margin-bottom: 70px;
+	}
+
+	.note-label {
+		text-align: left;
+		padding-left: 130px;
+		padding-right: 130px;
+		width: 100%;
+
+		&:last-child {
+			margin-bottom: 120px;
+		}
+	}
+
+	.unordered-text-container {
+		display: inline-block;
+		width: 100%;
+
+		.text-label {
+			float: right;
+			width: 90%;
+			margin-bottom: 50px;
+		}
+	}
+}

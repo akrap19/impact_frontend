@@ -13,8 +13,6 @@ const getProvider = (): PhantomProvider | undefined => {
       return provider;
     }
   }
-
-  window.open('https://phantom.app/', '_blank');
 };
 
 export default getProvider;

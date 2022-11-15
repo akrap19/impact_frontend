@@ -10,15 +10,17 @@ import {
 } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
-import { Camera, MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
+import { MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
 import Aventador from './3dModels/Aventador'
 import LoginLogOut from './components/authorization/LoginLogOut'
 import Registration from './components/authorization/Registration'
 import ImCloud from './components/common/ImCloud'
 import Navigation3DText from './components/navigation/Navigation3DText'
+import RoadMap from './components/roadMap/RoadMap'
 import WhitePaper from './components/whitePaper/WhitePaper'
+import Compose from './context/Compose'
+import { Providers } from './context/Providers'
 import { IUser } from './context/UserContext/models/User'
-import UserProvider from './context/UserContext/UserContext'
 
 interface ICanvasStateProps {
 	goHome: boolean
@@ -34,6 +36,9 @@ const CanvasContent = (props: ICanvasStateProps) => {
 	const [clicked, setClicked] = useState<any>(null)
 	const [connected, setConncted] = useState<boolean>(false)
 	const [user, setUser] = useState<IUser | undefined>()
+	const [showWhitePaper, setShowWhitePaper] = useState<boolean>(false)
+	const [showRoadMap, setShowRoadMap] = useState<boolean>(false)
+	const [hovered, setHovered] = useState<boolean>(true)
 
 	useEffect(() => {
 		state.camera.lookAt(0, 0, 35)
@@ -42,6 +47,8 @@ const CanvasContent = (props: ICanvasStateProps) => {
 	useFrame((state, dt) => {
 		const registerFormPosition = new Vector3(viewport.width / 0.29, 35, -275.3)
 		const homePosition = new Vector3(0, 0, 35)
+		const whitePaperPosition = new Vector3(-10, 0, 0)
+		const roadMapPosition = new Vector3(10, 0, 0)
 
 		if (clicked !== null) {
 			state.camera.position.lerp(registerFormPosition, MathUtils.damp(0, 1, 5, dt))
@@ -54,12 +61,26 @@ const CanvasContent = (props: ICanvasStateProps) => {
 			state.camera.position.lerp(homePosition, MathUtils.damp(0, 1, 5, dt))
 			setTimeout(() => {
 				props.setGoHome(false)
-			}, 1800)
+			}, 2000)
+		}
+
+		if (showWhitePaper) {
+			state.camera.position.lerp(whitePaperPosition, MathUtils.damp(0, 1, 5, dt))
+			setTimeout(() => {
+				setShowWhitePaper(false)
+			}, 2000)
+		}
+
+		if (showRoadMap) {
+			state.camera.position.lerp(roadMapPosition, MathUtils.damp(0, 1, 5, dt))
+			setTimeout(() => {
+				setShowRoadMap(false)
+			}, 2000)
 		}
 	})
 
 	return (
-		<UserProvider>
+		<Compose components={Providers}>
 			<color attach='background' args={['#0d0d33']} />
 			<Stars radius={150} depth={50} count={50000} factor={4} saturation={0} />
 			<Text3D
@@ -127,15 +148,27 @@ const CanvasContent = (props: ICanvasStateProps) => {
 				</>
 			)}
 			{
-				// @ts-ignore
-				<Navigation3DText width={viewport.width} rotation={[0, -0.3, 0]} textIndex={0} textColor={'white'} />
+				<Navigation3DText
+					width={viewport.width}
+					// @ts-ignore
+					rotation={[0, -0.3, 0]}
+					textIndex={0}
+					textColor={'white'}
+					showPage={setShowWhitePaper}
+				/>
 			}
-			<WhitePaper position={new Vector3(viewport.width / 19, 8, 7)} />
+			<WhitePaper setHovered={setHovered} />
 			{
-				// @ts-ignore
-				<Navigation3DText width={viewport.width} rotation={[0, -0.4, 0]} textIndex={1} textColor={'red'} />
+				<Navigation3DText
+					width={viewport.width}
+					// @ts-ignore
+					rotation={[0, -0.4, 0]}
+					textIndex={1}
+					textColor={'red'}
+					showPage={setShowRoadMap}
+				/>
 			}
-			{/* <RoadMap position={new Vector3(viewport.width / -5.99, 4, 10.3)} /> */}
+			<RoadMap position={new Vector3(-30, 6.6, 15)} />
 			<hemisphereLight intensity={0.5} />
 			<ContactShadows
 				resolution={1024}
@@ -190,8 +223,8 @@ const CanvasContent = (props: ICanvasStateProps) => {
 				/>
 			</Environment>
 			<Effects />
-			<OrbitControls enablePan={true} enableZoom={true} maxDistance={1000} />
-		</UserProvider>
+			<OrbitControls enablePan={true} enableZoom={hovered} maxDistance={1000} />
+		</Compose>
 	)
 }
 

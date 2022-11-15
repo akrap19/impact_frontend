@@ -10,6 +10,11 @@ interface State {
 	password?: string
 }
 
+interface ValidationState {
+	user?: string
+	password?: string
+}
+
 const Registration = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { addSignUp } = useContext(AuthorizationContext)
@@ -19,14 +24,35 @@ const Registration = () => {
 		user: undefined,
 		password: undefined
 	})
+	const [isValid, setIsValid] = useState<State>({
+		user: undefined,
+		password: undefined
+	})
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault()
 		addSignUp({ username: values.user, password: values.password, wallet: user?.wallet })
 	}
 
-	const handleChange = (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleValidationAndSetValues = (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
+		const specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+		const lettersAndNumbers = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,200}$/
+		const capitalLetters = /^(?=.*[A-Z])(?=\S+$).{6,200}$/
+
 		setValues({ ...values, [prop]: event.target.value })
+		if (prop === 'user') {
+			event.target.value.length < 2 || event.target.value.length > 9
+				? setIsValid({ ...isValid, [prop]: 'false' })
+				: setIsValid({ ...isValid, [prop]: 'true' })
+		}
+		if (prop === 'password') {
+			event.target.value.length < 6 ||
+			!lettersAndNumbers.test(event.target.value) ||
+			!specialCharacters.test(event.target.value) ||
+			!capitalLetters.test(event.target.value)
+				? setIsValid({ ...isValid, [prop]: 'false' })
+				: setIsValid({ ...isValid, [prop]: 'true' })
+		}
 	}
 
 	return (
@@ -39,20 +65,34 @@ const Registration = () => {
 			<Form className='signup-form' onSubmit={handleSubmit}>
 				<Form.Group>
 					<Form.Control
-						onChange={handleChange('user')}
-						className='name-input'
+						onChange={handleValidationAndSetValues('user')}
+						className={`name-input ${isValid.user === 'false' && 'error-input'}`}
 						type='text'
 						placeholder='user'
 						name='user'></Form.Control>
+					{isValid.user === 'false' && (
+						<label id='emailHelp' className='text-danger'>
+							{'Length is beetween 2 and 9'}
+						</label>
+					)}
 					<Form.Control
-						onChange={handleChange('password')}
-						className='email-input'
-						type='text'
+						onChange={handleValidationAndSetValues('password')}
+						className={`password-input ${isValid.password === 'false' && 'error-input'}`}
+						type='password'
 						placeholder='password'
 						name='password'></Form.Control>
+					{isValid.password === 'false' && (
+						<label id='emailHelp' className='text-danger'>
+							{'Min length is 6 with one special charater, number and upper case letter'}
+						</label>
+					)}
 					{
 						// @ts-ignore
-						<Button className='submit-btn' type='submit' variant='primary'>
+						<Button
+							className='submit-btn'
+							type='submit'
+							variant='primary'
+							disabled={isValid.user === 'false' || isValid.password === 'false' || !values.user || !values.password}>
 							Register
 						</Button>
 					}

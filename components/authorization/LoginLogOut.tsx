@@ -38,6 +38,8 @@ const LoginLogOut = (props: ILoginLogOutStateProps) => {
 			provider.connect().catch(error => {
 				console.log('login error', error)
 			})
+		} else {
+			window.open('https://phantom.app/', '_blank')
 		}
 	}
 
@@ -82,7 +84,14 @@ const LoginLogOut = (props: ILoginLogOutStateProps) => {
 					<meshStandardMaterial color='white' />
 				</Text3D>
 			)}
-			{user && <Plane position={[user ? viewport.width / 1.92 : 20.8, 8.02, -13.7]} />}
+			{user && (
+				<Plane
+					position={[user ? viewport.width / 1.92 : 20.8, 8.02, -13.7]}
+					rotation={[0.1, -0.3, 0]}
+					args={[7, 1.3]}
+					color={0x5441c1}
+				/>
+			)}
 		</>
 	)
 }

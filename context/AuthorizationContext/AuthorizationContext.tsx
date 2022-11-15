@@ -3,6 +3,8 @@ import { createContext } from 'react'
 import { instance } from '../Instance'
 import { IAuthorization } from './models/Authorization'
 import { AuthorizationContextState } from './types'
+import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify'
 
 const contextDefaultValues: AuthorizationContextState = {
 	addSignUp: () => {}
@@ -21,6 +23,11 @@ const AuthorizationProvider = ({ children }: any) => {
 			.then((response: AxiosResponse) => {
 				if (response.status === 200) {
 					console.log('request gone thru')
+				}
+			})
+			.catch(function (error) {
+				if (error.response.status === 422) {
+					toast.error(error.response.data.message, { position: toast.POSITION.BOTTOM_RIGHT, theme: 'colored' })
 				}
 			})
 	}

@@ -1,18 +1,18 @@
 import { Text3D } from '@react-three/drei'
-import { useThree, useFrame } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
-import { Euler, MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three'
+import { useThree } from '@react-three/fiber'
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import { Euler, PerspectiveCamera, Quaternion, Vector3 } from 'three'
 
 interface INavigation3Dtext {
 	width: number
 	rotation?: Euler
 	textIndex: number
 	textColor?: string
+	showPage: Dispatch<SetStateAction<boolean>>
 }
 
 const Navigation3DText = (props: INavigation3Dtext) => {
 	const [hovered, setHovered] = useState(false)
-	const [clicked, setClicked] = useState<any>(null)
 	const { viewport } = useThree()
 	const [navigationText, setNavigationText] = useState<string[]>(['W', 'R'])
 	const planeRef: any = useRef()
@@ -33,38 +33,6 @@ const Navigation3DText = (props: INavigation3Dtext) => {
 	useEffect(() => {
 		state.camera.lookAt(0, 0, 35)
 	}, [])
-
-	useEffect(() => {
-		if (clicked !== null) {
-			clicked.updateWorldMatrix(true, true)
-
-			const selection = clicked
-
-			const { position } = selection
-
-			const viewPos = new Vector3(selection.userData.viewPos)
-
-			const camPosTarget: any = new Vector3(...position).add(viewPos)
-
-			c.position.set(...camPosTarget)
-
-			c.lookAt(...position)
-			q.copy(c.quaternion)
-			p.copy(c.position)
-		} else {
-			p.set(0, 0, 35)
-
-			q.identity()
-		}
-	})
-
-	useFrame((state, dt) => {
-		const finalPosition = cameraPosition
-
-		if (clicked !== null) {
-			state.camera.position.lerp(finalPosition, MathUtils.damp(0, 1, 5, dt))
-		}
-	})
 
 	const handleNavigationText = (i: number) => {
 		const wholeWord = i === 0 ? 'White paper' : 'Road map'
@@ -103,14 +71,7 @@ const Navigation3DText = (props: INavigation3Dtext) => {
 				onPointerOut={() => setHovered(false)}
 				onPointerEnter={() => handleNavigationText(props.textIndex)}
 				onPointerLeave={() => handleNavigationText(props.textIndex)}
-				onClick={(e: any) => {
-					e.stopPropagation()
-					if (clicked === e.object) {
-						setClicked(null)
-					} else {
-						setClicked(e.object)
-					}
-				}}>
+				onClick={() => props.showPage(true)}>
 				<planeGeometry args={[itemTitleLength ? (currentMenuItem ? 1.7 : 1.5) : currentMenuItem ? 10 : 8, 1.3]} />
 				<meshPhysicalMaterial color={'#5441C1'} transparent={true} opacity={0} />
 			</mesh>

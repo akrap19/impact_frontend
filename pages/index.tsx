@@ -4,14 +4,11 @@ import { Canvas, useThree } from '@react-three/fiber'
 import ImpactLogo from './../asset/Logo_auto_crveni.png'
 import Image from 'next/image'
 import CanvasContent from '../CanvasContent'
-import { useEffect, useState } from 'react'
+import { ToastContainer } from 'react-toastify'
+import { useState } from 'react'
 
 const Home: NextPage = () => {
 	const [goHome, setGoHome] = useState<boolean>(false)
-
-	// useEffect(() => {
-	// 	goHome && setGoHome(false)
-	// }, [goHome])
 
 	return (
 		<div className='home-container'>
@@ -24,6 +21,7 @@ const Home: NextPage = () => {
 				camera={{ position: [0, 0, 35], fov: 25 }}>
 				<CanvasContent goHome={goHome} setGoHome={setGoHome} />
 			</Canvas>
+			<ToastContainer />
 		</div>
 	)
 }
