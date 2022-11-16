@@ -14,7 +14,7 @@ interface IRoadMap3DText {
 const RoadMap3DText = (props: IRoadMap3DText) => {
 	return (
 		<>
-			{/* <Text3D
+			<Text3D
 				position={props.position}
 				rotation={props.rotation}
 				curveSegments={32}
@@ -26,7 +26,7 @@ const RoadMap3DText = (props: IRoadMap3DText) => {
 				size={0.4}
 				font='/Inter_regular.json'>
 				{props.text}
-			</Text3D> */}
+			</Text3D>
 			{/* <Plane position={props.planePosition} rotation={props.planeRotation} args={props.planeArgs} /> */}
 		</>
 	)
