@@ -1,12 +1,10 @@
 import { Text3D } from '@react-three/drei'
 import { Vector3 } from 'three'
-import Plane from '../../3dModels/Plane'
 import TurnRightSign from './../../3dModels/TurnRightSign'
 import TurnLeftSign from './../../3dModels/TurnLeftSign'
 import UpSign from './../../3dModels/UpSign'
 import StopSign from './../../3dModels/StopSign'
 import RoadMap3DText from './RoadMap3DText'
-import Sphere from '../../3dModels/Sphere'
 import Hemisphere from '../../3dModels/Hemisphere'
 
 interface IRoadMap {
