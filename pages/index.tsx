@@ -6,12 +6,16 @@ import Image from 'next/image'
 import CanvasContent from '../CanvasContent'
 import { ToastContainer } from 'react-toastify'
 import { useState } from 'react'
+import Head from 'next/head'
 
 const Home: NextPage = () => {
 	const [goHome, setGoHome] = useState<boolean>(false)
 
 	return (
 		<div className='home-container'>
+			<Head>
+				<title>I M P A C T</title>
+			</Head>
 			<label className='logo-container'>
 				<Image className='logo' src={ImpactLogo} alt='logo' onClick={() => setGoHome(true)} />
 			</label>
