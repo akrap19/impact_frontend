@@ -14,7 +14,7 @@ interface IRoadMap {
 const RoadMap = (props: IRoadMap) => {
 	return (
 		<>
-			{/* <Text3D
+			<Text3D
 				position={props.position}
 				rotation={[-1.1, 1.7, 13.65]}
 				curveSegments={32}
@@ -28,7 +28,7 @@ const RoadMap = (props: IRoadMap) => {
 				{`Road map`}
 				<meshNormalMaterial />
 			</Text3D>
-			<RoadMap3DText
+			{/*<RoadMap3DText
 				position={[-29.97, 3.6, 13.2]}
 				rotation={[-1.1, 1.9, 13.65]}
 				planePosition={[-30, 3.4, 11.6]}
@@ -38,7 +38,7 @@ const RoadMap = (props: IRoadMap) => {
 			/>
 			<UpSign position={[-34.8, -12.15, 17.8]} rotation={[-2.7, 1.5, 13.65]} scale={3.2} />
 			<Hemisphere position={[-30, 3.35, 9.4]} rotation={[0.8, 0.1, 1.5]} textureImage={'/grey_light.png'} />
-			<RoadMap3DText
+			 <RoadMap3DText
 				position={[-29.6, 3.49, 1]}
 				rotation={[-1.1, 1.6, 13.65]}
 				planePosition={[-29.4, 3.35, 0]}
