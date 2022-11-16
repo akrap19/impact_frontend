@@ -14,7 +14,7 @@ interface IRoadMap {
 const RoadMap = (props: IRoadMap) => {
 	return (
 		<>
-			<Text3D
+			{/* <Text3D
 				position={props.position}
 				rotation={[-1.1, 1.7, 13.65]}
 				curveSegments={32}
@@ -27,7 +27,7 @@ const RoadMap = (props: IRoadMap) => {
 				font='/Vampiro One_Regular.json'>
 				{`Road map`}
 				<meshNormalMaterial />
-			</Text3D>
+			</Text3D> */}
 			<RoadMap3DText
 				position={[-29.97, 3.6, 13.2]}
 				rotation={[-1.1, 1.9, 13.65]}
