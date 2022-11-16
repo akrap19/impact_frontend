@@ -28,7 +28,7 @@ const RoadMap3DText = (props: IRoadMap3DText) => {
 				{props.text}
 				<meshStandardMaterial color='red' />
 			</Text3D>
-			<Plane position={props.planePosition} rotation={props.planeRotation} args={props.planeArgs} />
+			{/* <Plane position={props.planePosition} rotation={props.planeRotation} args={props.planeArgs} /> */}
 		</>
 	)
 }
