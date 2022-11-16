@@ -168,7 +168,7 @@ const CanvasContent = (props: ICanvasStateProps) => {
 					showPage={setShowRoadMap}
 				/>
 			}
-			{/* <RoadMap position={new Vector3(-30, 6.6, 15)} /> */}
+			<RoadMap position={new Vector3(-30, 6.6, 15)} />
 			<hemisphereLight intensity={0.5} />
 			<ContactShadows
 				resolution={1024}
