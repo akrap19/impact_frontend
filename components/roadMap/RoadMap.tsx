@@ -28,21 +28,7 @@ const RoadMap = (props: IRoadMap) => {
 				{`Road map`}
 				<meshNormalMaterial />
 			</Text3D>
-			<Text3D
-				position={[-29.97, 3.6, 13.2]}
-				rotation={[-1.1, 1.9, 13.65]}
-				curveSegments={32}
-				bevelEnabled
-				bevelSize={0.04}
-				bevelThickness={0.1}
-				height={0.2}
-				lineHeight={0.7}
-				size={0.4}
-				font='/Vampiro One_Regular.json'>
-				{`Realese of\nweb page`}
-				<meshStandardMaterial color='red' />
-			</Text3D>
-			{/* <RoadMap3DText
+			<RoadMap3DText
 				position={[-29.97, 3.6, 13.2]}
 				rotation={[-1.1, 1.9, 13.65]}
 				planePosition={[-30, 3.4, 11.6]}
@@ -111,7 +97,7 @@ const RoadMap = (props: IRoadMap) => {
 				text={`Tournaments`}
 			/>
 			<StopSign position={[-38.5, 7.9, 29.8]} rotation={[-2.65, 1.7, 12.1]} scale={3} />
-			<Hemisphere position={[-29.2, -5.01, 12.16]} rotation={[-1.9, 0.1, 1.5]} textureImage={'/grey_light.png'} /> */}
+			<Hemisphere position={[-29.2, -5.01, 12.16]} rotation={[-1.9, 0.1, 1.5]} textureImage={'/grey_light.png'} />
 		</>
 	)
 }

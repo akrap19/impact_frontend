@@ -24,7 +24,7 @@ const RoadMap3DText = (props: IRoadMap3DText) => {
 				height={0.2}
 				lineHeight={0.7}
 				size={0.4}
-				font='/Inter_regular.json'>
+				font='/Inter_Regular.json'>
 				{props.text}
 				<meshStandardMaterial color='red' />
 			</Text3D>

@@ -141,7 +141,7 @@ const CanvasContent = (props: ICanvasStateProps) => {
 						height={0.5}
 						lineHeight={0.7}
 						size={0.6}
-						font='/Inter_regular.json'>
+						font='/Inter_Regular.json'>
 						{user?.username ?? `Registration\nfor game`}
 						<meshStandardMaterial color='red' />
 					</Text3D>

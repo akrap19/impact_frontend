@@ -79,7 +79,7 @@ const LoginLogOut = (props: ILoginLogOutStateProps) => {
 					height={0.5}
 					lineHeight={0.6}
 					size={0.7}
-					font='/Inter_regular.json'>
+					font='/Inter_Regular.json'>
 					{logOutText ? logOutText : handleFormatWalletAddress(user.wallet)}
 					<meshStandardMaterial color='white' />
 				</Text3D>
