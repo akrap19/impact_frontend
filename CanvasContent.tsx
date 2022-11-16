@@ -54,28 +54,28 @@ const CanvasContent = (props: ICanvasStateProps) => {
 			state.camera.position.lerp(registerFormPosition, MathUtils.damp(0, 1, 5, dt))
 			setTimeout(() => {
 				setClicked(null)
-			}, 2000)
+			}, 3000)
 		}
 
 		if (props.goHome) {
 			state.camera.position.lerp(homePosition, MathUtils.damp(0, 1, 5, dt))
 			setTimeout(() => {
 				props.setGoHome(false)
-			}, 2000)
+			}, 3000)
 		}
 
 		if (showWhitePaper) {
 			state.camera.position.lerp(whitePaperPosition, MathUtils.damp(0, 1, 5, dt))
 			setTimeout(() => {
 				setShowWhitePaper(false)
-			}, 2000)
+			}, 3000)
 		}
 
 		if (showRoadMap) {
 			state.camera.position.lerp(roadMapPosition, MathUtils.damp(0, 1, 5, dt))
 			setTimeout(() => {
 				setShowRoadMap(false)
-			}, 2000)
+			}, 3000)
 		}
 	})
 
