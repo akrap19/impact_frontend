@@ -11,14 +11,14 @@ interface IPlaneStateProps {
 }
 
 const Plane = (props: IPlaneStateProps) => {
-	// const planeRef: any = useRef()
+	const planeRef: any = useRef()
 
 	return (
 		<>
-			{/* <mesh ref={planeRef} position={props.position} rotation={props.rotation} onClick={props.onClick}>
+			<mesh ref={planeRef} position={props.position} rotation={props.rotation} onClick={props.onClick}>
 				<planeGeometry args={props.args} />
 				<meshPhysicalMaterial color={new THREE.Color(props.color)} />
-			</mesh> */}
+			</mesh>
 		</>
 	)
 }
