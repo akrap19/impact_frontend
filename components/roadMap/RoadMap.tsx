@@ -38,7 +38,7 @@ const RoadMap = (props: IRoadMap) => {
 				height={0.2}
 				lineHeight={0.7}
 				size={0.4}
-				font='/Inter_regular.json'>
+				font='/Vampiro One_Regular.json'>
 				{`Realese of\nweb page`}
 				<meshStandardMaterial color='red' />
 			</Text3D>
