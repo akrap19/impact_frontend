@@ -14,7 +14,7 @@ interface IRoadMap {
 const RoadMap = (props: IRoadMap) => {
 	return (
 		<>
-			<Text3D
+			{/* <Text3D
 				position={props.position}
 				rotation={[-1.1, 1.7, 13.65]}
 				curveSegments={32}
@@ -97,7 +97,7 @@ const RoadMap = (props: IRoadMap) => {
 				text={`Tournaments`}
 			/>
 			<StopSign position={[-38.5, 7.9, 29.8]} rotation={[-2.65, 1.7, 12.1]} scale={3} />
-			<Hemisphere position={[-29.2, -5.01, 12.16]} rotation={[-1.9, 0.1, 1.5]} textureImage={'/grey_light.png'} />
+			<Hemisphere position={[-29.2, -5.01, 12.16]} rotation={[-1.9, 0.1, 1.5]} textureImage={'/grey_light.png'} /> */}
 		</>
 	)
 }
