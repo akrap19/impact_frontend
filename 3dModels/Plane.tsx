@@ -11,7 +11,7 @@ interface IPlaneStateProps {
 }
 
 const Plane = (props: IPlaneStateProps) => {
-	const planeRef: any = useRef()
+	// const planeRef: any = useRef()
 
 	return (
 		<>
