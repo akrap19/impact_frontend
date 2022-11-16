@@ -14,7 +14,7 @@ interface IRoadMap {
 const RoadMap = (props: IRoadMap) => {
 	return (
 		<>
-			{/* <Text3D
+			<Text3D
 				position={props.position}
 				rotation={[-1.1, 1.7, 13.65]}
 				curveSegments={32}
@@ -27,7 +27,7 @@ const RoadMap = (props: IRoadMap) => {
 				font='/Vampiro One_Regular.json'>
 				{`Road map`}
 				<meshNormalMaterial />
-			</Text3D> */}
+			</Text3D>
 			<RoadMap3DText
 				position={[-29.97, 3.6, 13.2]}
 				rotation={[-1.1, 1.9, 13.65]}
@@ -36,9 +36,9 @@ const RoadMap = (props: IRoadMap) => {
 				planeArgs={[3.8, 1.4]}
 				text={`Realese of\nweb page`}
 			/>
-			{/*<UpSign position={[-34.8, -12.15, 17.8]} rotation={[-2.7, 1.5, 13.65]} scale={3.2} />
+			<UpSign position={[-34.8, -12.15, 17.8]} rotation={[-2.7, 1.5, 13.65]} scale={3.2} />
 			<Hemisphere position={[-30, 3.35, 9.4]} rotation={[0.8, 0.1, 1.5]} textureImage={'/grey_light.png'} />
-			 <RoadMap3DText
+			<RoadMap3DText
 				position={[-29.6, 3.49, 1]}
 				rotation={[-1.1, 1.6, 13.65]}
 				planePosition={[-29.4, 3.35, 0]}
@@ -97,7 +97,7 @@ const RoadMap = (props: IRoadMap) => {
 				text={`Tournaments`}
 			/>
 			<StopSign position={[-38.5, 7.9, 29.8]} rotation={[-2.65, 1.7, 12.1]} scale={3} />
-			<Hemisphere position={[-29.2, -5.01, 12.16]} rotation={[-1.9, 0.1, 1.5]} textureImage={'/grey_light.png'} /> */}
+			<Hemisphere position={[-29.2, -5.01, 12.16]} rotation={[-1.9, 0.1, 1.5]} textureImage={'/grey_light.png'} />
 		</>
 	)
 }
