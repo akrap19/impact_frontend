@@ -15,8 +15,8 @@ const RoadMap3DText = (props: IRoadMap3DText) => {
 	return (
 		<>
 			<Text3D
-				position={props.position}
-				rotation={props.rotation}
+				position={[-29.97, 3.6, 13.2]}
+				rotation={[-1.1, 1.9, 13.65]}
 				curveSegments={32}
 				bevelEnabled
 				bevelSize={0.04}
