@@ -15,8 +15,8 @@ const RoadMap3DText = (props: IRoadMap3DText) => {
 	return (
 		<>
 			<Text3D
-				position={[-29.97, 3.6, 13.2]}
-				rotation={[-1.1, 1.9, 13.65]}
+				position={props.position}
+				rotation={props.rotation}
 				curveSegments={32}
 				bevelEnabled
 				bevelSize={0.04}
@@ -26,8 +26,9 @@ const RoadMap3DText = (props: IRoadMap3DText) => {
 				size={0.4}
 				font='/Inter_regular.json'>
 				{props.text}
+				<meshStandardMaterial color='red' />
 			</Text3D>
-			{/* <Plane position={props.planePosition} rotation={props.planeRotation} args={props.planeArgs} /> */}
+			<Plane position={props.planePosition} rotation={props.planeRotation} args={props.planeArgs} />
 		</>
 	)
 }
